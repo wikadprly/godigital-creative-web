@@ -3,16 +3,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --brand-blue: #0d3b66;
-  --brand-yellow: #ffd166;
+  --brand-blue: #0A2558;
+  --brand-yellow: #FFC700;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
-  --color-brand-blue: #0d3b66;
-  --color-brand-yellow: #ffd166;
+  --color-brand-blue: #0A2558;
+  --color-brand-yellow: #FFC700;
 }
 
 body {

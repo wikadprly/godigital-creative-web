@@ -1,402 +1,265 @@
-import { siteConfig } from "@/data/site";
-import { companyValues } from "@/data/values";
+import React from "react";
 import { team } from "@/data/team";
-import {
-  visi,
-  misi,
-  programKerja,
-  sasaranTarget,
-  targetAudiens,
-  mediaPromosi,
-  milestones,
-} from "@/data/about";
 
-const valueIcons = [
-  <svg key="p" className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M9 3v18" /><path d="M3 9h18" />
-  </svg>,
-  <svg key="e" className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
-  </svg>,
-  <svg key="t" className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10" /><path d="M16 8h-6a2 2 0 100 4h4a2 2 0 110 4H8" /><path d="M12 6v2m0 8v2" />
-  </svg>,
+const teamStyles = [
+  { bg: "#A5C8F2", headBg: "#0A2558", role: "Graphic Designer", desc: "Mengubah ide menjadi visual yang menarik dan berkesan." },
+  { bg: "#F3E5D8", headBg: "#0A2558", role: "Brand Strategist", desc: "Merancang strategi brand yang kuat dan tepat sasaran.", star: true },
+  { bg: "#E8F2ED", headBg: "#FFC700", role: "Content & Social Media", desc: "Membuat konten yang engaging dan relevan untuk audiens." },
+  { bg: "#FFF9C4", headBg: "#0A2558", role: "Motion Designer", desc: "Menghidupkan ide melalui motion dan animasi kreatif." },
 ];
 
 export default function TentangKamiPage() {
   return (
-    <>
-      {/* ===== HERO ===== */}
-      <section className="bg-brand-blue px-4 py-20 sm:py-28">
-        <div className="mx-auto max-w-4xl text-center">
-          <span className="mb-4 inline-block rounded-full border border-white/30 px-4 py-1.5 text-xs font-medium text-white/90">
+    <div className="min-h-screen bg-[#FDFDFD] font-sans text-gray-800 pb-20 relative overflow-hidden">
+      
+      {/* ============ BACKGROUND DOODLES ============ */}
+      {/* Flower Top Left */}
+      <svg className="absolute top-16 -left-12 w-48 h-48 text-[#FFC700] pointer-events-none opacity-90" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M50 50 Q60 10 70 40 Q50 50 50 50 M50 50 Q90 60 60 70 M50 50 Q40 90 30 70 M50 50 Q10 40 30 30" fill="none"/>
+        <circle cx="50" cy="50" r="4" fill="#FFC700" />
+      </svg>
+      {/* Yo-yo Hand Right */}
+      <svg className="absolute top-10 right-0 w-80 h-80 text-[#FFC700] hidden lg:block opacity-90 pointer-events-none" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M180 20 Q140 30 120 60" stroke="#FFC700" />
+        <circle cx="120" cy="60" r="15" fill="#FFFFFF" stroke="#FFC700" />
+        <path d="M120 75 L120 150" strokeDasharray="4 4" stroke="#FFC700" />
+        <circle cx="120" cy="150" r="10" stroke="#FFC700" fill="#FFFFFF" />
+        <circle cx="120" cy="150" r="3" fill="#FFC700" />
+      </svg>
+
+      <div className="max-w-[1300px] mx-auto px-6 pt-20 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-16">
+        
+        {/* ================= 1. HEADER (Kiri Atas) ================= */}
+        <div className="lg:col-span-5 flex flex-col justify-center">
+          {/* Creative Design Text Doodle */}
+          <div className="absolute -top-10 left-10 lg:static lg:-mt-10 mb-6 transform -rotate-6">
+            <p className="text-[#FFC700] font-bold text-lg leading-tight">
+              Creative<br/>Design<br/>That Works.
+            </p>
+          </div>
+          
+          <span className="bg-[#0A2558] text-white text-xs font-bold px-4 py-1.5 rounded-full w-fit mb-6">
             Tentang Kami
           </span>
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Kenali{" "}
-            <span className="relative text-brand-yellow">
-              GoDigital Creative
-              <svg
-                className="absolute -bottom-1.5 left-0 w-full"
-                viewBox="0 0 100 12"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M0,8 Q25,0 50,8 T100,8"
-                  stroke="#ffd166"
-                  strokeWidth="3"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
+          
+          <h1 className="text-4xl lg:text-5xl font-black text-[#0A2558] leading-[1.1] mb-6">
+            KREATIF, STRATEGIS,<br/>DAN BERDAMPAK<br/>
+            <span className="text-[#FFC700]">UNTUK BRAND KAMU.</span>
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-white/70">
-            {siteConfig.heroDescription}
+          
+          <p className="text-sm text-gray-600 leading-relaxed pr-4">
+            Go Digital Creative hadir untuk membantu bisnis lokal berkembang di era digital. 
+            Kami percaya desain yang baik <span className="font-bold text-[#0A2558]">bukan hanya soal estetika</span>, 
+            tapi juga solusi yang tepat untuk menyampaikan pesan, membangun identitas, dan meningkatkan kepercayaan audiens.
           </p>
         </div>
-      </section>
 
-      {/* ===== VISI & MISI ===== */}
-      <section className="bg-white px-4 py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-12 lg:grid-cols-2">
-            {/* Visi */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue text-white">
-                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                </svg>
-              </div>
-              <h2 className="text-2xl font-bold text-gray-900">Visi Kami</h2>
-              <p className="mt-4 text-lg italic leading-relaxed text-brand-blue">
-                &ldquo;{visi}&rdquo;
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-gray-500">
-                Kami percaya bahwa setiap bisnis, sekecil apapun, berhak untuk
-                memiliki kehadiran digital yang kuat dan mampu bersaing di pasar
-                global.
-              </p>
-            </div>
+        {/* ================= 2. SCRAPBOOK COLLAGE (Kanan Atas) ================= */}
+        <div className="lg:col-span-7 relative min-h-[400px] hidden sm:block">
+          
+          {/* Blue Flower Doodle Behind */}
+          <svg className="absolute top-0 left-0 w-32 h-32 text-[#0A2558]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M50 50 Q60 20 70 40 Q50 50 50 50 M50 50 Q80 60 60 70 M50 50 Q40 80 30 70 M50 50 Q20 40 30 30" />
+            <circle cx="50" cy="50" r="5" fill="#0A2558" />
+          </svg>
 
-            {/* Misi */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-yellow text-black">
-                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-                  <path d="M22 4L12 14.01l-3-3" />
-                </svg>
-              </div>
-              <h2 className="text-2xl font-bold text-gray-900">Misi Kami</h2>
-              <ul className="mt-4 space-y-4">
-                {misi.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-gray-600">
-                    <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-xs font-bold text-brand-blue">
-                      {i + 1}
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+          {/* Photo 1: Workspace / Laptop */}
+          <div className="absolute top-4 left-12 w-64 h-64 bg-white p-3 shadow-xl transform -rotate-3 z-10 border border-gray-100">
+            <div className="w-8 h-3 bg-[#FFC700]/80 absolute -top-1 left-1/2 -translate-x-1/2 rotate-2"></div> {/* Tape */}
+            <div className="w-full h-full bg-[#E5E7EB] relative overflow-hidden flex items-center justify-center">
+               {/* Dummy Image Content */}
+               <div className="w-full h-full bg-gray-200 absolute"></div>
+               <div className="z-10 bg-[#0A2558] text-white font-black text-xl p-4 text-center border-4 border-gray-800">
+                 GO<br/>DIGITAL<br/>CREATIVE
+               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ===== COMPANY STORY ===== */}
-      <section className="bg-gray-50 px-4 py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Perjalanan{" "}
-              <span className="text-brand-blue">Kami</span>
-            </h2>
-            <p className="mt-3 text-gray-500">
-              GoDigital Creative dikategorikan sebagai Solopreneur Creative
-              Service — bisnis jasa yang dijalankan secara mandiri dengan fokus
-              pada efisiensi biaya overhead.
+          {/* Photo 2: Blue Quote Card */}
+          <div className="absolute top-10 right-16 w-52 h-52 bg-[#0A2558] p-6 shadow-2xl transform rotate-3 z-20 flex items-center justify-center text-center">
+            <div className="w-10 h-4 bg-[#FFC700] absolute -top-2 left-1/2 -translate-x-1/2 -rotate-3"></div> {/* Tape */}
+            <p className="text-white font-bold text-xl leading-snug italic">
+              "We don't just<br/>make design,<br/>we build<br/>connections."
             </p>
           </div>
 
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-4 top-0 h-full w-0.5 bg-gray-200 sm:left-1/2 sm:-translate-x-px" />
+          {/* Photo 3: Sketch Card */}
+          <div className="absolute bottom-4 left-[35%] w-48 h-48 bg-white p-4 shadow-lg transform rotate-2 z-30 border border-gray-200">
+            <div className="w-full h-full border border-dashed border-[#0A2558]/30 flex flex-col items-center justify-center bg-[url('https://www.transparenttextures.com/patterns/lined-paper.png')]">
+               <svg className="w-20 h-20 text-[#0A2558] mb-2" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5">
+                 <path d="M40 70 C 40 80, 60 80, 60 70 L 60 50 C 60 40, 40 40, 40 50 Z" />
+                 <path d="M50 40 L50 20 M40 25 L50 20 L60 25 M45 15 A 5 5 0 1 1 55 15" />
+               </svg>
+               <p className="text-[#0A2558] font-bold text-lg text-center leading-tight italic">
+                 Ideas<br/>Create<br/>Impact
+               </p>
+            </div>
+          </div>
+        </div>
 
-            <div className="space-y-12">
-              {milestones.map((item, i) => (
-                <div
-                  key={i}
-                  className={`relative flex flex-col gap-4 sm:flex-row ${
-                    i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
-                  }`}
-                >
-                  {/* Dot */}
-                  <div className="absolute left-2.5 top-1 z-10 h-3 w-3 rounded-full border-2 border-brand-blue bg-white sm:left-1/2 sm:-translate-x-1.5" />
+        {/* ================= 3. NILAI KAMI (Kiri Tengah) ================= */}
+        <div className="lg:col-span-7">
+          <div className="flex items-center gap-2 mb-8">
+            <h2 className="text-2xl font-bold text-[#0A2558] italic">Nilai Kami</h2>
+            <svg className="w-6 h-6 text-[#0A2558]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2l2.5 5.5L20 8.5l-4 4 1 6L12 15.5 7 18.5l1-6-4-4 5.5-1L12 2z"/></svg>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 relative">
+            {/* Background Line for desktop */}
+            <div className="hidden md:block absolute top-10 left-10 right-10 h-[1px] border-t border-dashed border-gray-300 -z-10"></div>
+            
+            {/* Value 1 */}
+            <div className="flex flex-col items-center text-center px-2">
+              <div className="w-12 h-12 rounded-full bg-[#0A2558] text-white flex items-center justify-center mb-4 shadow-md">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              </div>
+              <h3 className="font-bold text-gray-900 text-sm mb-2">Kreativitas</h3>
+              <p className="text-[10px] text-gray-500 leading-tight">Kami selalu mencari ide baru untuk menghasilkan desain yang unik dan berkesan.</p>
+            </div>
+            
+            {/* Value 2 */}
+            <div className="flex flex-col items-center text-center px-2 border-l border-dashed border-gray-200">
+              <div className="w-12 h-12 rounded-full bg-[#FFC700] text-gray-900 flex items-center justify-center mb-4 shadow-md">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+              <h3 className="font-bold text-gray-900 text-sm mb-2">Strategi</h3>
+              <p className="text-[10px] text-gray-500 leading-tight">Setiap desain kami dasari dengan strategi yang tepat dan tujuan yang jelas.</p>
+            </div>
 
-                  {/* Content */}
-                  <div
-                    className={`ml-10 sm:ml-0 sm:w-1/2 ${
-                      i % 2 === 0 ? "sm:pr-12 sm:text-right" : "sm:pl-12"
-                    }`}
-                  >
-                    <span className="text-xs font-bold text-brand-yellow">
-                      {item.year}
-                    </span>
-                    <h3 className="mt-1 text-lg font-bold text-gray-900">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-gray-500">
-                      {item.desc}
-                    </p>
+            {/* Value 3 */}
+            <div className="flex flex-col items-center text-center px-2 border-l border-dashed border-gray-200">
+              <div className="w-12 h-12 rounded-full bg-[#0A2558] text-white flex items-center justify-center mb-4 shadow-md">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              </div>
+              <h3 className="font-bold text-gray-900 text-sm mb-2">Kolaborasi</h3>
+              <p className="text-[10px] text-gray-500 leading-tight">Kami mendengarkan kebutuhanmu dan bekerja bersama untuk hasil terbaik.</p>
+            </div>
+
+            {/* Value 4 */}
+            <div className="flex flex-col items-center text-center px-2 border-l border-dashed border-gray-200">
+              <div className="w-12 h-12 rounded-full bg-[#FFC700] text-gray-900 flex items-center justify-center mb-4 shadow-md">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              </div>
+              <h3 className="font-bold text-gray-900 text-sm mb-2">Berdampak</h3>
+              <p className="text-[10px] text-gray-500 leading-tight">Desain kami bukan hanya bagus, tapi juga memberi dampak nyata untuk brand kamu.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= 4. STATS CARD (Kanan Tengah - Overlapping) ================= */}
+        <div className="lg:col-span-5 lg:-mt-32 z-40 relative">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8">
+            <h3 className="text-gray-900 font-bold mb-6 text-sm">
+              Bersama banyak brand<br/>menuju versi terbaiknya ✨
+            </h3>
+            
+            <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+              <div className="flex items-center gap-3">
+                <div className="text-[#FFC700]">
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                </div>
+                <div>
+                  <div className="font-black text-xl text-[#0A2558]">150+</div>
+                  <div className="text-[10px] text-gray-500 font-bold leading-tight">Brand<br/>Telah Dibantu</div>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <div className="text-[#FFC700]">
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                </div>
+                <div>
+                  <div className="font-black text-xl text-[#0A2558]">500+</div>
+                  <div className="text-[10px] text-gray-500 font-bold leading-tight">Proyek<br/>Selesai</div>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <div className="text-[#FFC700]">
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                  <div className="font-black text-xl text-[#0A2558]">98%</div>
+                  <div className="text-[10px] text-gray-500 font-bold leading-tight">Klien<br/>Puas</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="text-[#FFC700]">
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                  <div className="font-black text-xl text-[#0A2558]">2+</div>
+                  <div className="text-[10px] text-gray-500 font-bold leading-tight">Tahun<br/>Pengalaman</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= 5. OUR STORY (Tengah Bawah) ================= */}
+        <div className="lg:col-start-7 lg:col-span-6 relative mt-10 lg:mt-0">
+          <div className="bg-[#0A2558] rounded-3xl p-8 sm:p-10 text-white shadow-xl relative">
+            <div className="w-12 h-5 bg-[#FFC700] absolute -top-2.5 right-10 rotate-3 rounded-sm"></div> {/* Tape */}
+            
+            <h2 className="text-[#FFC700] text-3xl font-bold italic mb-4">Our Story <span className="text-xl">✨</span></h2>
+            <div className="flex flex-col sm:flex-row gap-6 items-end">
+              <div className="text-xs sm:text-sm text-gray-300 leading-relaxed space-y-4">
+                <p>
+                  Berawal dari passion di dunia desain dan digital marketing, Go Digital Creative tumbuh dengan satu tujuan: 
+                  membantu brand dan bisnis lokal tampil lebih profesional, konsisten, dan menarik di dunia digital.
+                </p>
+                <p>
+                  Kami percaya setiap brand punya cerita unik. Tugas kami adalah mengemas cerita itu menjadi visual yang kuat, menarik, dan mudah diingat.
+                </p>
+              </div>
+              
+              {/* Potted Flower Doodle */}
+              <div className="shrink-0 w-24 h-24">
+                <svg viewBox="0 0 100 100" fill="none" stroke="#FFC700" strokeWidth="2" strokeLinecap="round">
+                  <path d="M40 70 L60 70 L55 90 L45 90 Z" />
+                  <path d="M50 70 L50 40 M50 55 L35 45 M50 50 L65 40" />
+                  <circle cx="50" cy="30" r="10" />
+                  <circle cx="50" cy="20" r="4" />
+                  <circle cx="50" cy="40" r="4" />
+                  <circle cx="40" cy="30" r="4" />
+                  <circle cx="60" cy="30" r="4" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= 6. TIM KAMI (Kiri Bawah) ================= */}
+        <div className="lg:col-span-8">
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-[#0A2558] italic mb-2">Tim di Balik<br/>Go Digital Creative</h2>
+            <p className="text-xs text-gray-500 max-w-xs">
+              Tim kecil dengan semangat besar untuk membantu brand kamu naik level.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+            {team.map((member, i) => {
+              const s = teamStyles[i % teamStyles.length];
+              return (
+              <div key={member.name} className="flex flex-col">
+                {s.star && <svg className="absolute -top-4 -right-2 w-6 h-6 text-[#FFC700]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2l2.5 5.5L20 8.5l-4 4 1 6L12 15.5 7 18.5l1-6-4-4 5.5-1L12 2z"/></svg>}
+                <div className="w-full aspect-square rounded-3xl mb-3 overflow-hidden" style={{ backgroundColor: s.bg }}>
+                  <div className="w-full h-full flex items-end justify-center pt-4">
+                    <div className="w-20 h-20 rounded-t-full" style={{ backgroundColor: s.headBg }}></div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== PROGRAM KERJA ===== */}
-      <section className="bg-white px-4 py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Program{" "}
-              <span className="relative text-brand-blue">
-                Kerja
-                <svg
-                  className="absolute -bottom-1.5 left-0 w-full"
-                  viewBox="0 0 100 12"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M0,8 Q25,0 50,8 T100,8"
-                    stroke="#ffd166"
-                    strokeWidth="3"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-            </h2>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-3">
-            {programKerja.map((program) => (
-              <div
-                key={program.misi}
-                className="rounded-2xl border border-gray-200 bg-white p-8 transition-shadow hover:shadow-md"
-              >
-                <span className="text-xs font-bold text-brand-yellow uppercase tracking-wider">
-                  {program.misi}
-                </span>
-                <h3 className="mt-2 text-lg font-bold text-gray-900">
-                  {program.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-gray-500">
-                  {program.desc}
-                </p>
+                <h3 className="font-bold text-[#0A2558] text-sm">{member.name}</h3>
+                <p className="text-[10px] font-bold text-gray-600 mb-1">{s.role}</p>
+                <p className="text-[9px] text-gray-500 leading-tight">{s.desc}</p>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
-      </section>
 
-      {/* ===== VALUES ===== */}
-      <section className="bg-gray-50 px-4 py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Value{" "}
-              <span className="text-brand-blue">Kami</span>
-            </h2>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-3">
-            {companyValues.map((value, i) => (
-              <div
-                key={value.title}
-                className="rounded-2xl border border-gray-200 bg-white p-8 text-center transition-shadow hover:shadow-md"
-              >
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
-                  {valueIcons[i]}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">
-                  {value.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-gray-500">
-                  {value.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== TIM ===== */}
-      <section className="bg-white px-4 py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Tim{" "}
-              <span className="relative text-brand-blue">
-                Kami
-                <svg
-                  className="absolute -bottom-1.5 left-0 w-full"
-                  viewBox="0 0 100 12"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M0,8 Q25,0 50,8 T100,8"
-                    stroke="#ffd166"
-                    strokeWidth="3"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-            </h2>
-            <p className="mt-3 text-gray-500">
-              Para kreator di balik GoDigital Creative yang siap membantu
-              transformasi digital bisnis Anda.
-            </p>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member) => (
-              <div
-                key={member.name}
-                className="group rounded-2xl border border-gray-200 bg-white p-6 text-center transition-shadow hover:shadow-lg"
-              >
-                <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-brand-blue text-2xl font-bold text-white transition-colors group-hover:bg-brand-yellow group-hover:text-black">
-                  {member.initials}
-                </div>
-                <h3 className="text-base font-bold text-gray-900">
-                  {member.name}
-                </h3>
-                <p className="mt-1 text-xs text-gray-400">Creative Team</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SASARAN & TARGET ===== */}
-      <section className="bg-brand-blue px-4 py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Sasaran &{" "}
-              <span className="text-brand-yellow">Target</span>
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm text-white/60">
-              Komitmen kami untuk memberikan layanan terbaik dan terukur bagi
-              setiap mitra GoDigital Creative.
-            </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2">
-            {sasaranTarget.map((target) => (
-              <div
-                key={target.title}
-                className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
-              >
-                <h3 className="text-lg font-bold text-white">
-                  {target.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">
-                  {target.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== TARGET AUDIENS (PDF page 11) ===== */}
-      <section className="bg-white px-4 py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Target{" "}
-              <span className="relative text-brand-blue">
-                Audiens
-                <svg
-                  className="absolute -bottom-1.5 left-0 w-full"
-                  viewBox="0 0 100 12"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M0,8 Q25,0 50,8 T100,8"
-                    stroke="#ffd166"
-                    strokeWidth="3"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-            </h2>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            {targetAudiens.map((audience) => (
-              <div
-                key={audience.title}
-                className="rounded-2xl border border-gray-200 bg-white p-8 transition-shadow hover:shadow-md"
-              >
-                <span className="text-xs font-bold text-brand-yellow uppercase tracking-wider">
-                  Target
-                </span>
-                <h3 className="mt-2 text-lg font-bold text-gray-900">
-                  {audience.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-gray-500">
-                  {audience.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== MEDIA PROMOSI ===== */}
-      <section className="bg-white px-4 py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Media{" "}
-              <span className="text-brand-blue">Promosi</span>
-            </h2>
-            <p className="mt-3 text-gray-500">
-              Saluran digital yang kami gunakan untuk menjangkau dan melayani
-              mitra.
-            </p>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-3">
-            {mediaPromosi.map((media, i) => (
-              <div
-                key={media.name}
-                className="rounded-2xl border border-gray-200 bg-white p-8 text-center transition-shadow hover:shadow-md"
-              >
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue">
-                  <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    {i === 0 && <><rect x="2" y="2" width="20" height="20" rx="5" /><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" /><path d="M17.5 6.5h.01" /></>}
-                    {i === 1 && <><rect x="3" y="3" width="18" height="14" rx="2" /><path d="M3 8h18" /><path d="M8 21h8" /><path d="M12 17v4" /></>}
-                    {i === 2 && <><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" /></>}
-                  </svg>
-                </div>
-                <h3 className="text-lg font-bold text-gray-900">
-                  {media.name}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-gray-500">
-                  {media.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
 }

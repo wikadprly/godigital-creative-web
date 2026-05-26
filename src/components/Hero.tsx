@@ -1,39 +1,34 @@
 import Link from "next/link";
 import { socials } from "@/config/socials";
-import { siteConfig } from "@/data/site";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-brand-blue">
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-12 px-4 pb-24 pt-16 lg:flex-row lg:pb-32 lg:pt-20">
-        {/* ===== Left column ===== */}
-        <div className="relative flex-1 text-center lg:text-left">
-          {/* Badge */}
-          <span className="mb-5 inline-block rounded-full border border-white/30 px-4 py-1.5 text-xs font-medium text-white/90">
-            {siteConfig.tagline}
+    <section className="relative min-h-[90vh] overflow-hidden bg-brand-blue">
+      <div className="relative mx-auto flex min-h-[90vh] max-w-6xl flex-col items-center px-6 md:flex-row md:px-8">
+        {/* ===== LEFT COLUMN (50%) ===== */}
+        <div className="flex flex-1 flex-col items-center pt-16 text-center md:items-start md:pr-10 md:text-left lg:pt-0">
+          <span className="mb-4 inline-flex rounded-full border border-white/30 px-4 py-1.5 text-xs font-medium text-white/90">
+            Solusi Digital untuk Brand yang Ingin Naik Level
           </span>
 
-          {/* Heading */}
           <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
             MENTRANSFORMASI MITRA AGAR UNGGUL SECARA{" "}
             <span className="text-brand-yellow">DIGITAL</span>
           </h1>
 
-          {/* Description */}
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
-            {siteConfig.heroDescription}
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+            Kami membantu bisnis lokal berkembang di era digital — dengan
+            layanan profesional, desain estetis, dan harga yang terjangkau.
           </p>
 
-          {/* Button group */}
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
+          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row md:items-start">
             <a
               href={socials.whatsapp.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-brand-yellow px-6 text-sm font-semibold text-black transition-colors hover:bg-yellow-400"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-yellow px-7 text-sm font-semibold text-black transition-colors hover:bg-yellow-400"
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 className="h-5 w-5"
@@ -44,78 +39,89 @@ export function Hero() {
             </a>
             <Link
               href="/portfolio"
-              className="inline-flex h-11 items-center justify-center gap-1 rounded-full border border-white/30 px-6 text-sm font-medium text-white transition-colors hover:bg-white/10"
+              className="inline-flex h-12 items-center justify-center gap-1 rounded-full border border-white px-7 text-sm font-medium text-white transition-colors hover:bg-white/10"
             >
               Lihat Portofolio &rarr;
             </Link>
           </div>
 
-          {/* Decorative flower doodle — bottom-left */}
-          <div className="absolute -bottom-20 left-0 hidden text-brand-yellow/60 lg:block">
+          {/* Flower doodle — bottom-left */}
+          <div className="absolute bottom-8 left-8 hidden text-brand-yellow/60 md:block">
             <svg
-              width="64"
-              height="64"
+              width="56"
+              height="56"
               viewBox="0 0 64 64"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
+              strokeLinecap="round"
             >
-              <circle cx="32" cy="32" r="6" fill="currentColor" />
-              <path d="M32 18c0 4 6 8 6 14" />
-              <path d="M32 46c0-4-6-8-6-14" />
-              <path d="M18 32c4 0 8-6 14-6" />
-              <path d="M46 32c-4 0-8 6-14 6" />
-              <path d="M24 24c6 2 10 6 16 4" />
-              <path d="M40 40c-6-2-10-6-16-4" />
+              <circle cx="32" cy="32" r="5" fill="currentColor" />
+              <path d="M32 18c2 4 6 7 8 12" />
+              <path d="M32 46c-2-4-6-7-8-12" />
+              <path d="M18 32c4-2 7-6 12-8" />
+              <path d="M46 32c-4 2-7 6-12 8" />
+              <path d="M25 25c4 3 7 6 11 5" />
+              <path d="M39 39c-4-3-7-6-11-5" />
             </svg>
           </div>
         </div>
 
-        {/* ===== Right column — overlapping visual ===== */}
-        <div className="relative flex-shrink-0">
-          <div className="relative h-[480px] w-[320px] sm:h-[540px] sm:w-[380px]">
-            {/* Yellow sticky note (behind phone, top-left) */}
-            <div className="absolute left-0 top-6 z-0 -rotate-6 rounded-sm bg-brand-yellow px-3 py-2 text-sm font-medium text-black shadow-md">
-              Creative Design That Works.
+        {/* ===== RIGHT COLUMN (50%) — Overlapping Visuals ===== */}
+        <div className="relative mt-12 flex w-full flex-shrink-0 items-center justify-center pb-16 md:mt-0 md:w-1/2 md:pb-0">
+          <div className="relative h-[400px] w-[320px] sm:h-[500px] sm:w-[380px]">
+            {/* Yellow sticky note (behind, top-left) */}
+            <div className="absolute left-0 top-4 z-10 -rotate-6 rounded-sm bg-brand-yellow px-4 py-2.5 shadow-lg sm:left-2 sm:top-6">
+              <p className="whitespace-nowrap text-sm font-bold text-black">
+                Creative Design That Works.
+              </p>
             </div>
 
-            {/* Blue polaroid (behind phone, bottom-left) */}
-            <div className="absolute bottom-16 left-4 z-0 rotate-3 rounded-sm bg-brand-blue p-2 shadow-md">
-              <div className="h-16 w-20 rounded-sm bg-white/20" />
+            {/* Blue polaroid (right side) */}
+            <div className="absolute right-0 top-16 z-10 -rotate-3 rounded-sm bg-[#0f4a7a] p-2 shadow-md sm:right-2 sm:top-20">
+              <div className="flex h-16 w-20 items-center justify-center rounded-sm bg-white/15">
+                <svg
+                  className="h-6 w-6 text-brand-yellow/80"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                >
+                  <circle cx="9" cy="9" r="7" />
+                  <path d="M9 2v2M9 14v2M2 9h2M14 9h2M4.5 4.5l1.5 1.5M13.5 13.5l1.5 1.5M4.5 13.5l1.5-1.5M13.5 4.5l1.5 1.5" />
+                </svg>
+              </div>
               <p className="mt-1 text-center text-[10px] font-medium text-white">
                 Coming Soon
               </p>
             </div>
 
-            {/* Phone mockup (main element, slightly rotated) */}
-            <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rotate-6">
-              <div className="h-[400px] w-[200px] rounded-[2.5rem] border-[4px] border-white/30 bg-white/5 shadow-2xl backdrop-blur-sm sm:h-[460px] sm:w-[220px]">
-                <div className="mx-auto mt-2 h-4 w-20 rounded-full bg-white/20" />
-                <div className="mx-auto mt-4 flex h-[calc(100%-3rem)] w-[88%] flex-col items-center rounded-xl bg-white/10 p-4 text-center">
-                  <div className="mb-2 h-14 w-14 rounded-full bg-gradient-to-br from-brand-yellow to-orange-400 ring-2 ring-white/30" />
-                  <div className="mb-1 h-3 w-3/4 rounded bg-white/20" />
-                  <div className="mb-4 h-2 w-1/2 rounded bg-white/10" />
-                  <div className="grid grid-cols-3 gap-1">
-                    {Array.from({ length: 6 }).map((_, i) => (
-                      <div
-                        key={i}
-                        className="aspect-square rounded-sm bg-white/15"
-                      />
-                    ))}
-                  </div>
-                  <div className="mt-auto flex w-full justify-around">
-                    <div className="h-1.5 w-1.5 rounded-full bg-white/30" />
-                    <div className="h-1.5 w-6 rounded-full bg-white/30" />
-                    <div className="h-1.5 w-1.5 rounded-full bg-white/30" />
+            {/* Phone mockup (center, z-20) */}
+            <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rotate-6">
+              <div className="relative h-[380px] w-[190px] rounded-[2.5rem] border-[3px] border-[#1a1a1a] bg-black shadow-2xl sm:h-[440px] sm:w-[215px]">
+                <div className="absolute left-1/2 top-2.5 z-30 h-5 w-14 -translate-x-1/2 rounded-full bg-black" />
+                <div className="mx-auto mt-[18px] h-[calc(100%-22px)] w-[calc(100%-4px)] overflow-hidden rounded-[2.2rem]">
+                  <div className="relative h-full w-full bg-black">
+                    <img
+                      src="/instagram.jpeg"
+                      alt="Instagram @go.dcreative"
+                      className="h-full w-full object-cover"
+                    />
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* White checklist card (in front, bottom-right) — PDF Value */}
-            <div className="absolute -bottom-2 right-0 z-20 rounded-xl bg-white p-4 shadow-xl">
+            {/* White checklist card (front, bottom-right, z-30) */}
+            <div className="absolute -bottom-1 right-0 z-30 rounded-xl bg-white p-4 shadow-xl sm:-bottom-2">
               <ul className="space-y-2">
-                {["Profesional", "Estetis", "Terjangkau"].map((item) => (
+                {[
+                  "Desain Aesthetic",
+                  "Proses Terstruktur",
+                  "Harga Terjangkau",
+                  "Hasil Maksimal",
+                ].map((item) => (
                   <li
                     key={item}
                     className="flex items-center gap-2 text-xs font-medium text-gray-800"
@@ -137,25 +143,16 @@ export function Hero() {
               </ul>
             </div>
 
-            {/* Scattered doodle ornaments */}
+            {/* Doodle ornaments */}
             <svg
-              className="absolute -right-4 top-4 h-5 w-5 text-brand-yellow/60"
+              className="absolute -right-2 top-2 h-5 w-5 text-brand-yellow/50"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
-            <svg
-              className="absolute right-8 top-1/3 h-7 w-7 text-brand-yellow/40"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-            <div className="absolute -left-2 top-1/2 h-2 w-2 rounded-full bg-brand-yellow/50" />
-            <div className="absolute bottom-1/3 left-1/4 h-1.5 w-1.5 rounded-full bg-brand-yellow/40" />
+            <div className="absolute -left-1 top-1/2 h-2 w-2 rounded-full bg-brand-yellow/40" />
+            <div className="absolute bottom-1/2 left-1/3 h-1.5 w-1.5 rounded-full bg-brand-yellow/30" />
           </div>
         </div>
       </div>

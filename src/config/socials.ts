@@ -5,11 +5,11 @@ export const socials = {
   },
   instagram: {
     label: "Instagram",
-    url: "https://instagram.com/godigitalcreative",
+    url: "https://instagram.com/go.dcreative",
   },
   tiktok: {
     label: "TikTok",
-    url: "https://tiktok.com/@godigitalcreative",
+    url: "https://tiktok.com/@go.dcreative",
   },
 } as const;
 
